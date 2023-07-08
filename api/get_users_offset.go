@@ -21,20 +21,20 @@ func (s *Server) HandleGetUsersOffset(ctx *gin.Context) {
 		return
 	}
 
-	var user model.User
+	var users []model.User
 
-	data := s.DB.Offset(params.Offset).Limit(params.Limit).Find(&user)
+	result := s.DB.Offset(params.Offset).Limit(params.Limit).Find(&users)
 
-	if data.RowsAffected == 0 {
+	if result.RowsAffected == 0 {
 		fmt.Println("0 records found")
 		ctx.AbortWithStatus(http.StatusNotFound)
 		return
 	}
 
-	if data.Error != nil {
-		ctx.AbortWithError(http.StatusBadRequest, data.Error)
+	if result.Error != nil {
+		ctx.AbortWithError(http.StatusBadRequest, result.Error)
 		return
 	}
 
-	ctx.JSON(http.StatusOK, &data)
+	ctx.JSON(http.StatusOK, &users)
 }
