@@ -5,7 +5,6 @@ import (
 	"os"
 
 	"github.com/joho/godotenv"
-
 	"github.com/lucassarcanjo/pagination-study/api"
 )
 
@@ -22,6 +21,8 @@ func main() {
 
 	srv.InitDb(dsn)
 	srv.InitGin()
+
+	srv.SeedData(1000)
 
 	srv.RegisterRoutes()
 

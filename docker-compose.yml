@@ -33,7 +33,7 @@ services:
     image: postgres:15.3
     container_name: db_container
     environment:
-      POSTGRES_DB: users
+      POSTGRES_DB: paginationstudy
       POSTGRES_USER: user
       POSTGRES_PASSWORD: password
     ports:
@@ -41,7 +41,7 @@ services:
     networks:
       - backend
     healthcheck:
-      test: ["CMD-SHELL", "pg_isready -U user -d users"]
+      test: ["CMD-SHELL", "pg_isready -U user -d paginationstudy"]
       interval: 10s
       timeout: 5s
       retries: 5

@@ -5,6 +5,7 @@ import (
 	"net/http"
 
 	"github.com/gin-gonic/gin"
+	"github.com/lucassarcanjo/pagination-study/pkg/model"
 )
 
 type OffsetParams struct {
@@ -20,7 +21,9 @@ func (s *Server) HandleGetUsersOffset(ctx *gin.Context) {
 		return
 	}
 
-	data := s.DB.Offset(params.Offset).Limit(params.Limit)
+	var user model.User
+
+	data := s.DB.Offset(params.Offset).Limit(params.Limit).Find(&user)
 
 	if data.RowsAffected == 0 {
 		fmt.Println("0 records found")
