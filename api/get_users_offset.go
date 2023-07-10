@@ -23,7 +23,7 @@ func (s *Server) HandleGetUsersOffset(ctx *gin.Context) {
 
 	var users []model.User
 
-	result := s.DB.Offset(params.Offset).Limit(params.Limit).Find(&users)
+	result := s.DB.Order("id").Offset(params.Offset).Limit(params.Limit).Find(&users)
 
 	if result.RowsAffected == 0 {
 		fmt.Println("0 records found")
