@@ -2,7 +2,7 @@
 
 Comparison between pagination using the traditional *offset* and the *keyset* method. 
 
-## Parts
+## Technologies
 
 - API: go application
 - Docker and Docker Compose: to run the API and the database
@@ -11,4 +11,6 @@ Comparison between pagination using the traditional *offset* and the *keyset* me
 
 ## References
 
-- [](https://www.moesif.com/blog/technical/api-design/REST-API-Design-Filtering-Sorting-and-Pagination/)
+- https://www.moesif.com/blog/technical/api-design/REST-API-Design-Filtering-Sorting-and-Pagination/
+- https://betterprogramming.pub/writing-a-fully-fledged-api-using-postgresql-gin-and-gorm-4d5ba73114da
+- https://www.youtube.com/watch?v=DIKH-q-gJNU
