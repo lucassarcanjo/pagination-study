@@ -5,7 +5,6 @@ import (
 	"fmt"
 	"log"
 	"net/http"
-	"time"
 
 	"github.com/brianvoe/gofakeit/v6"
 	"github.com/gin-gonic/gin"
@@ -50,7 +49,6 @@ func (s *Server) SeedData(amount int) *Server {
 	for i := 0; i < amount; i++ {
 		var u model.User
 		gofakeit.Struct(&u)
-		u.CreatedAt = time.Now()
 		users = append(users, u)
 	}
 
